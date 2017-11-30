@@ -1,0 +1,89 @@
+{"url":"https://www.kenyabuzz.com/events/",
+  "result":{"extractorData":
+  {"url":"https://www.kenyabuzz.com/events/",
+    "data":[
+      {"group":[
+        {"Date":[
+          {"text":"1st Dec, 2017"}],
+
+          "Events":[
+            {"href":"https://www.kenyabuzz.com/events/event/afro-hair-awards",
+              "text":"Afro Hair Awards"}],
+          "Image":[{"alt":"Afro Hair Awards",
+            "href":"https://www.kenyabuzz.com/events/event/afro-hair-awards",
+            "src":"https://www.kenyabuzz.com/public/uploads/events/b2db8d79fddb7311c6b961975921fa36.jpg"}],
+          "Place":[{"href":"https://www.kenyabuzz.com/directory/business/intercontinental-hotel",
+            "text":"Hotel InterContinental"}],
+          "Time":[
+            {"href":"https://www.kenyabuzz.com/events/event/afro-hair-awards",
+              "text":"8:00am - 5:00pm"}]},
+        {"Date":[{"text":"1st Dec, 2017"}],
+
+          "Events":[
+            {"href":"https://www.kenyabuzz.com/events/event/lahani-3",
+              "text":"Lahani"}],"Image":[
+          {"alt":"Lahani",
+            "href":"https://www.kenyabuzz.com/events/event/lahani-3",
+            "src":"https://www.kenyabuzz.com/public/uploads/events/3fccc1d891e9d7729fda5d9fbbc08eaf.jpg"}],
+          "Place":[{"href":"https://www.kenyabuzz.com/directory/business/simba-corp-apire-centre",
+            "text":"Simba Corp Aspire Centre"}],
+          "Time":[{"href":"https://www.kenyabuzz.com/events/event/lahani-3",
+            "text":"8:00am - 10:00am"}]},
+        {"Date":[{"text":"1st Dec, 2017"}],
+
+          "Events":[
+            {"href":"https://www.kenyabuzz.com/events/event/let-s-be-merry",
+              "text":"Let's Be Merry"}],
+          "Image":[{"alt":"Let's Be Merry",
+            "href":"https://www.kenyabuzz.com/events/event/let-s-be-merry",
+            "src":"https://www.kenyabuzz.com/public/uploads/events/be4533670f336e479010b921d151e2de.jpg"}],
+          "Place":[
+            {"href":"https://www.kenyabuzz.com/directory/business/the-alchemist-bar",
+              "text":"The Alchemist Bar"}],
+          "Time":[
+            {"href":"https://www.kenyabuzz.com/events/event/let-s-be-merry",
+              "text":"10:00am - 8:00pm"}]},
+        {"Date":[{"text":"1st Dec, 2017"}],
+
+          "Events":[
+            {"href":"https://www.kenyabuzz.com/events/event/life-coach-training-class",
+              "text":"Life Coach Training Class"}],
+          "Image":[
+            {"alt":"Life Coach Training Class",
+              "href":"https://www.kenyabuzz.com/events/event/life-coach-training-class",
+              "src":"https://www.kenyabuzz.com/public/uploads/events/291ced697f737a570185991680309a4e.jpg"}],
+          "Place":[{"href":"https://www.kenyabuzz.com/directory/business/savelberg-retreat-centre-2",
+            "text":"Savelberg Retreat Centre"}],
+          "Time":[
+            {"href":"https://www.kenyabuzz.com/events/event/life-coach-training-class",
+              "text":"10:00am - 4:00pm"}]},
+        {"Date":[{"text":"1st Dec, 2017"}],
+
+          "Events":[{"href":"https://www.kenyabuzz.com/events/event/the-handmade-market",
+            "text":"The Handmade Market"}],
+          "Image":[{"alt":"The Handmade Market",
+            "href":"https://www.kenyabuzz.com/events/event/the-handmade-market",
+            "src":"https://www.kenyabuzz.com/public/uploads/events/4e2b1a3b5e7a991594a665f8bde84c42.jpg"}],
+          "Place":[
+            {"href":"https://www.kenyabuzz.com/directory/business/rosslyn-riviera-mall",
+              "text":"Rosslyn Riviera Mall"}],
+          "Time":[
+            {"href":"https://www.kenyabuzz.com/events/event/the-handmade-market",
+              "text":"12:00pm - 10:00pm"}]},
+        {"Date":[
+          {"text":"1st Dec, 2017"}],
+
+          "Events":[
+            {"href":"https://www.kenyabuzz.com/events/event/latin-vibe",
+              "text":"LATIN VIBE"}],
+          "Image":[
+            {"alt":"LATIN VIBE",
+              "href":"https://www.kenyabuzz.com/events/event/latin-vibe",
+              "src":"https://www.kenyabuzz.com/public/uploads/events/cd3a058e1d12ca556298054ff1c2a6e5.jpg"}],
+          "Place":[{"href":"https://www.kenyabuzz.com/directory/business/hotel-metro",
+            "text":"Hotel Metro"}],
+          "Time":[
+            {"href":"https://www.kenyabuzz.com/events/event/latin-vibe",
+              "text":"5:00pm - 6:00am"}]}]}]},
+
+    "pageData":{"statusCode":200,"timestamp":1512054969338},"timestamp":1512054969338,"sequenceNumber":0}}

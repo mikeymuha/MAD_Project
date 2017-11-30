@@ -1,0 +1,63 @@
+{
+  "Events": [
+    {
+      "Event": "Afro Hair Awards",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/b2db8d79fddb7311c6b961975921fa36.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/afro-hair-awards",
+      "Place": "Hotel InterContinental",
+      "Time": "8:00am - 5:00pm",
+      "Date": "1st Dec, 2017"
+    },
+
+    {
+      "Event": "Lahani",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/3fccc1d891e9d7729fda5d9fbbc08eaf.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/lahani-3",
+      "Place": "Simba Corp Aspire Centre",
+      "Time": "8:00am - 10:00am",
+      "Date": "1st Dec, 2017"
+
+    },
+
+    {
+      "Event": "Let's Be Merry",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/be4533670f336e479010b921d151e2de.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/let-s-be-merry",
+      "Place": "The Alchemist Bar",
+      "Time": "10:00am - 8:00pm",
+      "Date": "1st Dec, 2017"
+    },
+
+    {
+      "Event": "Life Coach Training Class",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/291ced697f737a570185991680309a4e.jpg",
+      "url": "https://www.kenyabuzz.com/directory/business/savelberg-retreat-centre-2",
+      "Place": "Savelberg Retreat Centre",
+      "Time": "10:00am - 4:00pm",
+      "Date": "1st Dec, 2017"
+
+    },
+
+    {
+      "Event": "The Handmade Market",
+      "image" : "https://www.kenyabuzz.com/public/uploads/events/4e2b1a3b5e7a991594a665f8bde84c42.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/the-handmade-market",
+      "Place": "Rosslyn Riviera Mall",
+      "Time": "12:00pm - 10:00pm",
+      "Date": "1st Dec, 2017"
+
+    },
+
+    {
+      "Event": "LATIN VIBE",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/cd3a058e1d12ca556298054ff1c2a6e5.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/latin-vibe",
+      "Place": "Hotel Metro",
+      "Time": "5:00pm - 6:00am",
+      "Date": "1st Dec, 2017"
+
+    }
+
+
+  ]
+}
