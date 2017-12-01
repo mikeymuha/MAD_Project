@@ -119,31 +119,53 @@ public class MapsActivity extends FragmentActivity
     public void onMapReady(GoogleMap map) {
         mMap = map;
 
-        // Use a custom info window adapter to handle multiple lines of text in the
-        // info window contents.
-        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+        LatLng Hotel_Intercontinental = new LatLng(-1.287957, 36.819311);
+        mMap.addMarker(new MarkerOptions().position(Hotel_Intercontinental)
+                .title("Afro Hair Awards"));
 
-            @Override
-            // Return null here, so that getInfoContents() is called next.
-            public View getInfoWindow(Marker arg0) {
-                return null;
-            }
+        LatLng Simba_Corp = new LatLng(-1.266242, 36.802597);
+        mMap.addMarker(new MarkerOptions().position(Simba_Corp)
+                .title("Lahani"));
 
-            @Override
-            public View getInfoContents(Marker marker) {
-                // Inflate the layouts for the info window, title and snippet.
-                View infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
-                        (FrameLayout) findViewById(R.id.map), false);
+        LatLng Alchemist_Bar = new LatLng(-1.262462, 36.804019);
+        mMap.addMarker(new MarkerOptions().position(Alchemist_Bar)
+                .title("Let's Be Merry"));
 
-                TextView title = ((TextView) infoWindow.findViewById(R.id.title));
-                title.setText(marker.getTitle());
+        LatLng Savelberg_Retreat = new LatLng(-1.297135, 36.778258);
+        mMap.addMarker(new MarkerOptions().position(Savelberg_Retreat)
+                .title("Life Coach Training Class"));
 
-                TextView snippet = ((TextView) infoWindow.findViewById(R.id.snippet));
-                snippet.setText(marker.getSnippet());
+        LatLng Riviera = new LatLng(-1.216676, 36.79993);
+        mMap.addMarker(new MarkerOptions().position(Riviera)
+                .title("The Handmade Market"));
 
-                return infoWindow;
-            }
-        });
+        LatLng Metro = new LatLng(-1.282592, 36.81842);
+        mMap.addMarker(new MarkerOptions().position(Metro)
+                .title("LATIN VIBE"));
+
+        LatLng KWSH = new LatLng(-1.335347, 36.7804);
+        mMap.addMarker(new MarkerOptions().position(KWSH)
+                .title("Health Festival"));
+
+        LatLng KU = new LatLng(-1.179969, 36.934934);
+        mMap.addMarker(new MarkerOptions().position(KU)
+                .title("Forex Trading Conference"));
+
+        LatLng Mettā = new LatLng(-1.270419, 36.803238);
+        mMap.addMarker(new MarkerOptions().position(Mettā)
+                .title("Start Up Grind Success Session"));
+
+        LatLng NSC = new LatLng(0.017375, 37.086212);
+        mMap.addMarker(new MarkerOptions().position(NSC)
+                .title("Kenya Colour Run"));
+
+        LatLng MJC = new LatLng(-1.258986, 36.785449);
+        mMap.addMarker(new MarkerOptions().position(MJC)
+                .title("Fashion & Lifestyle: 3rd Edition"));
+
+        LatLng MISC = new LatLng(-1.229878, 36.891038);
+        mMap.addMarker(new MarkerOptions().position(MISC)
+                .title("Uteo African Festival"));
 
         // Prompt the user for permission.
         getLocationPermission();
@@ -153,6 +175,8 @@ public class MapsActivity extends FragmentActivity
 
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
+
+
     }
 
     /**
