@@ -25,6 +25,7 @@ public class listviewActivity extends AppCompatActivity{
 
         mListView = (ListView) findViewById(android.R.id.list);
 
+
         final ArrayList<Events> EventList = Events.getEventsFromFile("events.json", this);
 
         String[] listItems= new String[EventList.size()];

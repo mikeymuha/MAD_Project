@@ -16,7 +16,6 @@
       "Place": "Simba Corp Aspire Centre",
       "Time": "8:00am - 10:00am",
       "Date": "1st Dec, 2017"
-
     },
 
     {
@@ -35,17 +34,15 @@
       "Place": "Savelberg Retreat Centre",
       "Time": "10:00am - 4:00pm",
       "Date": "1st Dec, 2017"
-
     },
 
     {
       "Event": "The Handmade Market",
-      "image" : "https://www.kenyabuzz.com/public/uploads/events/4e2b1a3b5e7a991594a665f8bde84c42.jpg",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/4e2b1a3b5e7a991594a665f8bde84c42.jpg",
       "url": "https://www.kenyabuzz.com/events/event/the-handmade-market",
       "Place": "Rosslyn Riviera Mall",
       "Time": "12:00pm - 10:00pm",
       "Date": "1st Dec, 2017"
-
     },
 
     {
@@ -55,7 +52,60 @@
       "Place": "Hotel Metro",
       "Time": "5:00pm - 6:00am",
       "Date": "1st Dec, 2017"
+    },
 
+    {
+      "Event": "Health Festival",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/1f83cad801542365b1514ec695fbfbb4.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/health-festival-4",
+      "Place": "Kenya Wildlife Services Headquarters",
+      "Time": "9:00am - 6:00pm",
+      "Date": "2nd Dec, 2017"
+    },
+
+    {
+      "Event": "Forex Trading Conference",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/438ef5fd705e4914b5c158dbb13a685e.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/forex-trading-conference",
+      "Place": "Kenyatta University",
+      "Time": "10:00am - 5:30pm",
+      "Date": "2nd Dec, 2017"
+    },
+
+    {
+      "Event": "Story Time: Start Up Grind Success Session",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/c6db41dcc8bbb61409075f84e1cca4a9.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/story-time-start-up-grind-success-session",
+      "Place": "Mettā Nairobi",
+      "Time": "6:00pm - 9:00pm",
+      "Date": "8th Dec, 2017"
+    },
+
+    {
+      "Event": "Kenya Colour Run: Nanyuki Edition",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/b9f98aad66ea77431e0d0279c3fa6358.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/kenya-colour-run-nanyuki-edition",
+      "Place": "Nanyuki Sports Club",
+      "Time": "10:00am - 5:00pm",
+      "Date": "9th Dec, 2017"
+    },
+
+    {
+      "Event": "Fashion & Lifestyle: 3rd Edition",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/77707defc5cd55f35d0484242417193c.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/fashion-lifestyle-3rd-edition",
+      "Place": "Michael Joseph Centre",
+      "Time": "2:00pm - 7:00pm",
+      "Date": "10th Dec, 2017"
+    },
+
+    {
+      "Event": "Uteo African Festival",
+      "Image" : "https://www.kenyabuzz.com/public/uploads/events/6358bf8ea3bfc14d68c140c283cbd187.jpg",
+      "url": "https://www.kenyabuzz.com/events/event/uteo-african-festival",
+      "Place": "Moi International Sports Centre",
+      "Time": "12:00pm - 2:00am",
+      "Date": "15th Dec, 2017"
     }
 
 

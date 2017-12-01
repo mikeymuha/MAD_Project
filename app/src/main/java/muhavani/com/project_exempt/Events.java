@@ -28,18 +28,21 @@ public class Events {
             // Load data
             String jsonString = loadJsonFromAsset("events.json", context);
             JSONObject json = new JSONObject(jsonString);
-            JSONArray Events = json.getJSONArray("Events");
+            JSONArray EVents = json.getJSONArray("Events");
 
             // Get events objects from data
-            for(int i = 0; i < Events.length(); i++){
+            for(int i = 0; i < EVents.length(); i++){
+
+               JSONObject obj = EVents.getJSONObject(i);
                 Events events = new Events();
 
-                events.title = Events.getJSONObject(i).getString("Event");
-                events.place = Events.getJSONObject(i).getString("Place");
-                events.imageUrl = Events.getJSONObject(i).getString("Image");
-                events.time = Events.getJSONObject(i).getString("Time");
-                events.date = Events.getJSONObject(i).getString("Date");
-                events.url = Events.getJSONObject(i).getString("url");
+                events.title = EVents.getJSONObject(i).getString("Event");
+                events.place = EVents.getJSONObject(i).getString("Place");
+                events.imageUrl = EVents.getJSONObject(i).getString("Image");
+
+                events.time = EVents.getJSONObject(i).getString("Time");
+                events.date = EVents.getJSONObject(i).getString("Date");
+                events.url = EVents.getJSONObject(i).getString("url");
 
                 EventList.add(events);
             }

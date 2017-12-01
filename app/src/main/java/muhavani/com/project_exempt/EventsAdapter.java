@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import muhavani.com.project_exempt.Events;
 import muhavani.com.project_exempt.R;
 
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
 
 /**
  * Created by mikey on 12/10/2017.
@@ -83,6 +85,11 @@ public class EventsAdapter extends BaseAdapter{
 
         //3
         Picasso.with(mcontext).load(events.imageUrl).placeholder(R.mipmap.ic_launcher).into(thumbnailImageView);
+
+        android.view.ViewGroup.LayoutParams layoutParams = thumbnailImageView.getLayoutParams();
+        layoutParams.width = 350;
+        layoutParams.height =350;
+        thumbnailImageView.setLayoutParams(layoutParams);
 
 
 
