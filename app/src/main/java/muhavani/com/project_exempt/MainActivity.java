@@ -6,9 +6,11 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -113,10 +115,21 @@ public class MainActivity extends AppCompatActivity{
 
         int id = item.getItemId();
 
-        switch (id){
+        switch (id) {
 
             case R.id.about:
-                Toast.makeText(this, "About Clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "About Clicked", Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Tuparty App Version 1.0.0")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                            }
+                        })
+                        .setCancelable(false);
+                // Create the AlertDialog object and return it
+                builder.create();
+                builder.show();
                 break;
 
             case R.id.events:
