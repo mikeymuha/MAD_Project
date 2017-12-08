@@ -84,12 +84,8 @@ public class EventsAdapter extends BaseAdapter{
         placeTextView.setText(events.place);
 
         //3
-        Picasso.with(mcontext).load(events.imageUrl).placeholder(R.mipmap.ic_launcher).into(thumbnailImageView);
+        Picasso.with(mcontext).load(events.imageUrl).placeholder(R.mipmap.ic_launcher).resize(250,250).centerCrop().into(thumbnailImageView);
 
-        android.view.ViewGroup.LayoutParams layoutParams = thumbnailImageView.getLayoutParams();
-        layoutParams.width = 350;
-        layoutParams.height =350;
-        thumbnailImageView.setLayoutParams(layoutParams);
 
 
 

@@ -6,8 +6,11 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        isConnected();
 
         //ViewPager Code
         viewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -68,7 +73,7 @@ public class MainActivity extends AppCompatActivity{
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                Toast.makeText(getApplicationContext(), "Add failed to load. Error Code: " + errorCode, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Add failed to load. Error Code: " + errorCode, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -143,6 +148,22 @@ public class MainActivity extends AppCompatActivity{
                 break;
         }
         return true;
+    }
+
+    public void isConnected(){
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+        }
+        else {
+            //Toast.makeText(getApplicationContext(), "Please turn on your internet connection to fully utilize this app", Toast.LENGTH_LONG).show();
+            connected = false;
+            Intent nonet = new Intent(MainActivity.this, NoNetActivity.class);
+            startActivity(nonet);
+        }
     }
 }
 
