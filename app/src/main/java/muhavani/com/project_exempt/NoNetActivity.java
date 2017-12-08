@@ -39,7 +39,7 @@ public class NoNetActivity extends AppCompatActivity {
 
             }
             else {
-                Toast.makeText(getApplicationContext(), "Please turn on your internet connection and try again", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Please check your internet connection and try again", Toast.LENGTH_LONG).show();
                 connected = false;
             }
         }
