@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity{
                 //Toast.makeText(this, "About Clicked", Toast.LENGTH_SHORT).show();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setMessage("Tuparty App Version 1.0.0")
+                builder.setMessage("Tuparty App Version 1.0.0" + "\nDeveloped by: Michael Muhavani")
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                             }
@@ -164,6 +164,13 @@ public class MainActivity extends AppCompatActivity{
             Intent nonet = new Intent(MainActivity.this, NoNetActivity.class);
             startActivity(nonet);
         }
+    }
+
+    public void onBackPressed(){
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
     }
 }
 
