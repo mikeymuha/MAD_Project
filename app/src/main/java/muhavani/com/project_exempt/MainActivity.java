@@ -22,15 +22,28 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayer.Provider;
+import com.google.android.youtube.player.YouTubePlayerFragment;
+import com.google.android.youtube.player.YouTubePlayerView;
+
 /**
  * Created by mikey on 30/11/2017.
  */
 
-public class MainActivity extends AppCompatActivity{
+
+
+public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnInitializedListener{
 
     private AdView mAdview;
     ViewPager viewPager;
-    ViewPager Pager;
+
+    private static final int RECOVERY_REQUEST = 1;
+    private YouTubePlayerFragment youTubePlayerFragment;
+    private MyPlayerStateChangeListener playerStateChangeListener;
+    private MyPlaybackEventListener playbackEventListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,20 +52,17 @@ public class MainActivity extends AppCompatActivity{
 
         isConnected();
 
+        youTubePlayerFragment = (YouTubePlayerFragment)getFragmentManager().findFragmentById(R.id.youtube_view);
+        youTubePlayerFragment.initialize(Config.YOUTUBE_API_KEY, this);
+
+        playerStateChangeListener = new MyPlayerStateChangeListener();
+        playbackEventListener = new MyPlaybackEventListener();
+
         //ViewPager Code
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
         viewPager.setAdapter(viewPagerAdapter);
-
-
-        //2nd ViewPager Code
-        Pager = (ViewPager) findViewById(R.id.pager);
-
-        pagerAdapter pageradapter = new pagerAdapter(this);
-        Pager.setAdapter(pageradapter);
-
-
 
         //Google Ad Code
         mAdview = (AdView) findViewById(R.id.adView);
@@ -108,11 +118,38 @@ public class MainActivity extends AppCompatActivity{
             super.onDestroy();
         }
 
+
+
+    public void isConnected(){
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+        }
+        else {
+            //Toast.makeText(getApplicationContext(), "Please turn on your internet connection to fully utilize this app", Toast.LENGTH_LONG).show();
+            connected = false;
+            Intent nonet = new Intent(MainActivity.this, NoNetActivity.class);
+            startActivity(nonet);
+        }
+    }
+
+    public void onBackPressed(){
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+    }
+
     //Menu Code
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.options_menu, menu);
-        return true;
+        super.onCreateOptionsMenu(menu);
+            getMenuInflater().inflate(R.menu.options_menu, menu);
+            return true;
+
     }
 
     @Override
@@ -149,29 +186,110 @@ public class MainActivity extends AppCompatActivity{
         }
         return true;
     }
+    @Override
+    public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean wasRestored) {
 
-    public void isConnected(){
-        boolean connected = false;
-        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            //we are connected to a network
-            connected = true;
-        }
-        else {
-            //Toast.makeText(getApplicationContext(), "Please turn on your internet connection to fully utilize this app", Toast.LENGTH_LONG).show();
-            connected = false;
-            Intent nonet = new Intent(MainActivity.this, NoNetActivity.class);
-            startActivity(nonet);
+        player.setPlayerStateChangeListener(playerStateChangeListener);
+        player.setPlaybackEventListener(playbackEventListener);
+
+        if (!wasRestored) {
+            player.cueVideo("AZb-7mtNYgA"); // Plays https://www.youtube.com/watch?v=AZb-7mtNYgA
         }
     }
 
-    public void onBackPressed(){
-        Intent startMain = new Intent(Intent.ACTION_MAIN);
-        startMain.addCategory(Intent.CATEGORY_HOME);
-        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(startMain);
+    @Override
+    public void onInitializationFailure(Provider provider, YouTubeInitializationResult errorReason) {
+        if (errorReason.isUserRecoverableError()) {
+            errorReason.getErrorDialog(this, RECOVERY_REQUEST).show();
+        } else {
+            String error = String.format(getString(R.string.player_error), errorReason.toString());
+            Toast.makeText(getApplicationContext(), error, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RECOVERY_REQUEST) {
+            // Retry initialization if user performed a recovery action
+            getYouTubePlayerProvider().initialize(Config.YOUTUBE_API_KEY, this);
+        }
+    }
+
+    protected Provider getYouTubePlayerProvider() {
+        return youTubePlayerFragment;
+    }
+
+    private void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    private final class MyPlaybackEventListener implements YouTubePlayer.PlaybackEventListener {
+
+        @Override
+        public void onPlaying() {
+            // Called when playback starts, either due to user action or call to play().
+            //showMessage("Playing");
+        }
+
+        @Override
+        public void onPaused() {
+            // Called when playback is paused, either due to user action or call to pause().
+            //showMessage("Paused");
+        }
+
+        @Override
+        public void onStopped() {
+            // Called when playback stops for a reason other than being paused.
+            // showMessage("Stopped");
+        }
+
+        @Override
+        public void onBuffering(boolean b) {
+            // Called when buffering starts or ends.
+        }
+
+        @Override
+        public void onSeekTo(int i) {
+            // Called when a jump in playback position occurs, either
+            // due to user scrubbing or call to seekRelativeMillis() or seekToMillis()
+        }
+    }
+
+    private final class MyPlayerStateChangeListener implements YouTubePlayer.PlayerStateChangeListener {
+
+        @Override
+        public void onLoading() {
+            // Called when the player is loading a video
+            // At this point, it's not ready to accept commands affecting playback such as play() or pause()
+        }
+
+        @Override
+        public void onLoaded(String s) {
+            // Called when a video is done loading.
+            // Playback methods such as play(), pause() or seekToMillis(int) may be called after this callback.
+        }
+
+        @Override
+        public void onAdStarted() {
+            // Called when playback of an advertisement starts.
+        }
+
+        @Override
+        public void onVideoStarted() {
+            // Called when playback of the video starts.
+        }
+
+        @Override
+        public void onVideoEnded() {
+            // Called when the video reaches its end.
+        }
+
+        @Override
+        public void onError(YouTubePlayer.ErrorReason errorReason) {
+            // Called when an error occurs.
+        }
     }
 }
+
 
 

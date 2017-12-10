@@ -37,5 +37,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-location:11.6.0'
     compile 'com.google.android.gms:play-services-places:11.6.0'
     compile 'com.google.android.gms:play-services-ads:11.6.0'
+    compile files('libs/YouTubeAndroidPlayerApi.jar')
     testCompile 'junit:junit:4.12'
 }
