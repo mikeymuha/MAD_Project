@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
         player.setPlaybackEventListener(playbackEventListener);
 
         if (!wasRestored) {
-            player.cueVideo("AZb-7mtNYgA"); // Plays https://www.youtube.com/watch?v=AZb-7mtNYgA
+            player.cueVideo("EQE3SCVTn68"); // Plays https://www.youtube.com/watch?v=EQE3SCVTn68
         }
     }
 
