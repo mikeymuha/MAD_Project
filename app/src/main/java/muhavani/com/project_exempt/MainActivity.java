@@ -29,6 +29,9 @@ import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerFragment;
 import com.google.android.youtube.player.YouTubePlayerView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * Created by mikey on 30/11/2017.
  */
@@ -50,8 +53,10 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Call isConnected() to check network state
         isConnected();
 
+        //Instantiate Youtube Player Fragments and Event Listeners
         youTubePlayerFragment = (YouTubePlayerFragment)getFragmentManager().findFragmentById(R.id.youtube_view);
         youTubePlayerFragment.initialize(Config.YOUTUBE_API_KEY, this);
 
@@ -63,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
         viewPager.setAdapter(viewPagerAdapter);
+
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new MyTimerTask(), 8000, 4000);
+
 
         //Google Ad Code
         mAdview = (AdView) findViewById(R.id.adView);
@@ -287,6 +296,29 @@ public class MainActivity extends AppCompatActivity implements YouTubePlayer.OnI
         @Override
         public void onError(YouTubePlayer.ErrorReason errorReason) {
             // Called when an error occurs.
+        }
+    }
+
+    //Auto Image Slider Code
+    public class MyTimerTask extends TimerTask{
+
+
+        @Override
+        public void run() {
+
+            MainActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(viewPager.getCurrentItem() == 0){
+                        viewPager.setCurrentItem(1);
+                    }else if(viewPager.getCurrentItem() == 1){
+                        viewPager.setCurrentItem(2);
+                    }else{
+                        viewPager.setCurrentItem(0);
+                    }
+                }
+            });
+
         }
     }
 }
